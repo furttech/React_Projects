@@ -1,0 +1,67 @@
+#d1 {
+
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    outline-color: blue;
+    outline-width: 2px;
+    outline-style: double;
+
+}
+
+@media (max-width: 800px) {
+    #d1 {
+        flex-flow: column wrap;
+    }
+}
+
+.f-container-0 {
+
+    display: flex;
+    flex-flow: column nowrap;
+    color: blue;
+    outline-color: rgb(255, 123, 0);
+    outline-width: 2px;
+    outline-style: double;
+    
+}
+
+.f-container-1 {
+
+
+    display: flex;
+    flex-flow: column nowrap;
+    color: blue;
+    outline-color: rgb(255, 0, 0);
+    outline-width: 2px;
+    outline-style: double;
+    
+}
+
+.f-container-2 {
+
+    display: flex;
+    flex-flow: column nowrap;
+    outline-color: rgba(162, 0, 255, 0.966);
+    outline-width: 2px;
+    outline-style: double;
+
+}
+
+.flex-child-1 {
+    color: blueviolet;
+    order: 2;
+}
+
+.flex-child-2 {
+    color: rgb(226, 43, 171);
+    order: 3;
+}
+
+.flex-child-3 {
+    color: rgb(43, 226, 211);
+    order: 1;
+    flex-grow: 20;
+};
