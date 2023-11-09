@@ -8,7 +8,7 @@ var express = require("express"),
 const User = require("./model/User"); 
 var app = express(); 
   
-mongoose.connect("mongodb://localhost/27017"); 
+mongoose.connect("mongodb://127.0.0.1:27017/?socketTimeoutMS=2000&w=majority&wtimeoutMS=5000&appName=Mongoose_login_1"); 
   
 app.set("view engine", "ejs"); 
 app.use(bodyParser.urlencoded({ extended: true })); 
