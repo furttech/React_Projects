@@ -6,14 +6,23 @@ var express = require("express"),
     passportLocalMongoose =  
         require("passport-local-mongoose") 
 const User = require("./model/User"); 
+
+const dotenv = require("dotenv");
+
+dotenv.config({ path: "./config.env" });
+
 var app = express(); 
   
-mongoose.connect("mongodb://127.0.0.1:27017/?socketTimeoutMS=2000&w=majority&wtimeoutMS=5000&appName=Mongoose_login_1"); 
+const conString = process.env.URI || "";
+const appSecrete = process.env.APPSEC || "";
+const port = process.env.PORT || 3000; 
+
+mongoose.connect(conString); 
   
 app.set("view engine", "ejs"); 
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(require("express-session")({ 
-    secret: "Rusty is a dog", 
+    secret: appSecrete, 
     resave: false, 
     saveUninitialized: false
 })); 
@@ -95,7 +104,7 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login"); 
 } 
   
-var port = process.env.PORT || 3000; 
+
 app.listen(port, function () { 
     console.log("Server Has Started!"); 
 }); 
