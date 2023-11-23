@@ -1,3 +1,23 @@
 .wrapper {
-    padding: 20px;
+    padding: 5px;
+
+}
+
+.containerMain {
+
+    border: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    outline-color: blue;
+    outline-style: solid;
+
+}
+
+.containerTop {
+    padding: 10px;
+    display: flex;
+    flex-flow: column nowrap; 
+
 }
