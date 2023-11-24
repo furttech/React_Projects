@@ -37,7 +37,8 @@ function App() {
         </div>
         <div className='containerMid'>
           <Routes>
-            <Route path="/landing" element={<Landing />} />  
+            <Route path="/login" element={<Landing />} />  
+            <Route path='/landing' element={<Landing />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/preferences" element={<Preferences />} />
           </Routes>
