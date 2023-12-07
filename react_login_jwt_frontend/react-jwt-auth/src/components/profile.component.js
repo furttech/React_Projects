@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
-import AuthService from "../services/auth.service";
+import Auth from "../services/auth.service";
+
 
 class Profile extends Component {
     constructor(props){
@@ -14,7 +15,7 @@ class Profile extends Component {
     }
     
     componentDidMount(){
-        const cUser = AuthService.getCurrentUser();
+        const cUser = Auth.getCurrentUser();
 
         if(!cUser){
             this.setState({

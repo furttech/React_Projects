@@ -30,7 +30,7 @@ class BoardAdmin extends Component {
         return(
             <div className="container">
                 <div className="jumbotron">
-                    <i class="fas fa-h3">{this.state.content}</i>
+                    <i className="fas fa-h3">{this.state.content}</i>
                 </div>
             </div>
         );

@@ -1,13 +1,16 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/auth";
+const API_URL = "http://localhost:3300/api/auth/";
 
 class AuthService {
     
     // login function calling server api endpoint 
     async login(user,pass){
-        const response = await axios
-            .post(API_URL + "signin", { user, pass });
+        const response = await axios.post(
+            API_URL + "signin",
+            { user, pass }
+        );
+      
         // setting local storage with response data
         if (response.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(response.data));
@@ -21,10 +24,11 @@ class AuthService {
     }
 
     // register user function calling signup server endpoint
-    async register(user,email,pass){
-        const response = await axios
-            .post(API_URL + "signup", {user,email,pass});
-            return response.data;
+    async signup(user,email,pass){
+        return await axios.post(
+            API_URL + "signup",
+            {user,email,pass}
+        );
     }
 
     getCurrentUser(){
@@ -32,6 +36,6 @@ class AuthService {
     }
 }
 
-const AuthServices = new AuthService();
+const Auth = new AuthService();
 
-export default AuthServices;
+export default Auth;

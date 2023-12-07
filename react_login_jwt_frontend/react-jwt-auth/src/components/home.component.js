@@ -5,7 +5,7 @@ import UserService from "../services/user.service";
 class Home extends Component {
     constructor(props){
         super(props);
-
+ 
         this.state = {
             content:""
         };
@@ -31,7 +31,7 @@ class Home extends Component {
         return(
             <div className="container">
              <div className="jumbotron">
-                <i class="fas fa-h3">{this.state.content}</i>
+                <i className="fas fa-h3">{this.state.content}</i>
              </div>
             </div>
         );

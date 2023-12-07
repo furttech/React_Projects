@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button"; 
-import AuthService from "../services/auth.service";
+import Auth from "../services/auth.service";
 import { withRouter } from "../common/with-router";
+
 
 const required = (value) => {
     if(!value){
@@ -53,12 +54,12 @@ class Login extends Component {
         this.form.validateAll();
 
         if(this.checkBtn.context._errors.length === 0){
-            AuthService.login(this.state.user, this.state.pass)
+            Auth.login(this.state.user, this.state.pass)
             .then(()=>{
                 this.props.router.navigator("/profile");
                 window.location.reload();
-            })
-            .catch((err)=>{
+            },
+            (err)=>{
                 const response = (
                     err.response && 
                     err.response.data &&
@@ -89,23 +90,23 @@ class Login extends Component {
                             this.form = c;
                         }}
                     >
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="user">UserName</label>
                         <Input 
                             type="text" 
                             name="user" 
-                            class="form-control" 
+                            className="form-control" 
                             value={this.state.name} 
                             onChange={this.userChange} 
                             validations={[required]} 
                         />
                     </div>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor="pass">PassWord</label>
                         <Input 
                             type="text" 
                             name="pass" 
-                            class="form-control" 
+                            className="form-control" 
                             value={this.state.pass} 
                             onChange={this.passChange} 
                             validations={[required]} 

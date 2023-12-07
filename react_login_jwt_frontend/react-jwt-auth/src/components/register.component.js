@@ -70,7 +70,7 @@ class Register extends Component {
             pass:"",
             email:"",
             successful:false,
-            message:""
+            message:"",
         };
     }
 
@@ -97,24 +97,25 @@ class Register extends Component {
         
         this.setState({
             message:"",
-            successful:false
+            successful:false,
         });
 
         this.form.validateAll();
 
         if(this.checkBtn.context._errors.length === 0){
-            AuthService.register(
+           
+            AuthService.signup(
                 this.state.user,
-                this.state.pass,
-                this.state.email
+                this.state.email,
+                this.state.pass
             )
-            .then( (response) => {
+            .then( (res) => {
                 this.setState({
-                    message:response.data.message,
-                    successful:true
+                    message:res.data.message,
+                    successful:true,
                 });
-            })
-            .error((err) => {
+            },
+            (err) => {
                 const res = (
                     err.response &&
                     err.response.data &&
@@ -124,7 +125,7 @@ class Register extends Component {
                 
                 this.setState({
                     successful:false,
-                    message:res
+                    message:res,
                 });
             });
         }
@@ -151,36 +152,36 @@ class Register extends Component {
                         {
                             !this.state.successful && (
                             <div>
-                                <div class="form-group">
+                                <div className="form-group">
                                   <label htmlFor="user">UserName</label>
                                   <Input 
                                     type="text"
                                     name="user"
-                                    class="form-control"
+                                    className="form-control"
                                     value={this.state.user}
                                     onChange={this.userChange}
                                     validations={[required,verifyUser]}
                                   />
                                 </div>
 
-                                <div class="form-group">
+                                <div className="form-group">
                                 <label htmlFor="pass">PassWord</label>
                                 <Input 
                                     type="text"
                                     name="pass"
-                                    class="form-control"
+                                    className="form-control"
                                     value={this.state.pass}
                                     onChange={this.passChange}
                                     validations={[required,verifyPass]}
                                 />
                                 </div>
 
-                                <div class="form-group">
+                                <div className="form-group">
                                 <label htmlFor="email">Email</label>
                                 <Input 
                                     type="text"
                                     name="email"
-                                    class="form-control"
+                                    className="form-control"
                                     value={this.state.email}
                                     onChange={this.emailChange}
                                     validations={[required,verifyEmail]}
@@ -188,7 +189,7 @@ class Register extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <button type="button" class="btn btn-primary">Sign Up</button>
+                                    <button className="btn btn-primary">Sign Up</button>
                                 </div>
                             </div>
                             )
