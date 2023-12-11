@@ -2,9 +2,10 @@ export default function authHeader() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if(user && user.accessToken){
-        /* for Node.js Express back-end
-        return { 'x-access-token': user.accessToken }; */
-        return{ Authorization: 'Token Owner ' + user.accessToken };
+        /* for Node.js Express back-end*/
+        return { 'x-access-token': user.accessToken }; 
+       /* for testing using postman */
+        //return{ Authorization: 'Token Owner ' + user.accessToken };
     } else {
         return {};
     }

@@ -56,7 +56,7 @@ class Login extends Component {
         if(this.checkBtn.context._errors.length === 0){
             Auth.login(this.state.user, this.state.pass)
             .then(()=>{
-                this.props.router.navigator("/profile");
+                this.props.router.navigate("/profile");
                 window.location.reload();
             },
             (err)=>{

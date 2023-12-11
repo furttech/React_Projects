@@ -33,7 +33,7 @@ class Profile extends Component {
             return <Navigate to={this.state.redirect} />
         }
 
-        const { cUser } = this.state;
+        const { currentUser } = this.state;
 
         return (
             <div className="container">
@@ -42,28 +42,28 @@ class Profile extends Component {
                         <div>
                          <header className="jumbotron">
                           <h3>
-                           <strong>{cUser.username}</strong>  
+                           <strong>{currentUser.username}</strong>  
                            Profile 
                           </h3>                                                      
                          </header>
                          <p>
                           <strong>Token:</strong>{" "}
-                            {cUser.accessToken.substring(0, 20)} ...{" "}
-                            {cUser.accessToken.substring(cUser.accessToken.length - 20)}
+                            {currentUser.accessToken.substring(0, 20)} ...{" "}
+                            {currentUser.accessToken.substring(currentUser.accessToken.length - 20)}
                          </p>
                          <p>
                           <strong>ID:</strong>{" "}
-                           {cUser.id}
+                           {currentUser.id}
                          </p>
                          <p>
                           <strong>Email:</strong>{" "}
-                           {cUser.email}
+                           {currentUser.email}
                          </p>
                          <strong>Authorities:</strong>
                          <ul>
                             {
-                                cUser.roles &&
-                                cUser.roles.map( (role, index) => <li key={index}>{role}</li> )
+                                currentUser.roles &&
+                                currentUser.roles.map( (role, index) => <li key={index}>{role}</li> )
                             }
                          </ul>
                         </div>

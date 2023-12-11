@@ -27,7 +27,7 @@ class AuthService {
     async signup(user,email,pass){
         return await axios.post(
             API_URL + "signup",
-            {user,email,pass}
+            { user, email, pass}
         );
     }
 
