@@ -64,7 +64,7 @@ class Register extends Component {
         this.userChange = this.userChange.bind(this);
         this.passChange = this.passChange.bind(this);
         this.emailChange = this.emailChange.bind(this);
-        
+                
         this.state = {
             user:"",
             pass:"",
